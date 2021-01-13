@@ -1,41 +1,25 @@
-# TypeScript Next.js example
+# ARIACT
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+This is a really quick setup for a project with Next.js, Typescript, MDX and stitches.
 
 ## How to use it?
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Install the necessary packages by running
 
 ```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
+yarn
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+And run the project with
+
+```bash
+yarn dev
+```
+
+### Creating a new page
+
+Right now you can't do too much. The root url automatically redirects to `/test/test`. When you want to create a new page for you only have to create a `slug.mdx` file in the `data/test` folder. That page will then be available on `/test/slug`.
 
 ## Notes
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declarations for React and Node.
-
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
-
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+When you're using Visual Studio Code it's recommended to use the [VSCode MDX plugin](https://marketplace.visualstudio.com/items?itemName=JounQin.vscode-mdx) for syntax highlighting in `.mdx` files.
