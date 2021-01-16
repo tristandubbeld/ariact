@@ -8,6 +8,10 @@ import { MDXComponents } from '@/components/MDXComponents';
 
 const root = process.cwd();
 
+export async function getDataFolders() {
+  return fs.readdirSync(path.join(root, 'data'));
+}
+
 export async function getFiles(type: string) {
   return fs.readdirSync(path.join(root, 'data', type));
 }
@@ -38,4 +42,28 @@ export async function getFileBySlug(type: string, slug: string) {
       ...data,
     },
   };
+}
+
+interface PageFrontMatter {
+  slug: string;
+}
+
+export async function getAllFilesFrontMatter<T>(
+  type: string,
+): Promise<Array<T & PageFrontMatter>> {
+  const files = fs.readdirSync(path.join(root, 'data', type));
+
+  return files.map(fileSlug => {
+    const source = fs.readFileSync(
+      path.join(root, 'data', type, fileSlug),
+      'utf8',
+    );
+
+    const { data } = matter(source);
+
+    return {
+      ...(data as T),
+      slug: fileSlug.replace('.mdx', ''),
+    };
+  });
 }

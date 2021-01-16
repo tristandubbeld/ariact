@@ -28,7 +28,7 @@ export function GlobalStyles() {
               background-color: var(--colors-loContrast);
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
-              line-height: 1;
+              /* line-height: 1; */
               font-family: var(--fonts-inter);
             }
           `,
