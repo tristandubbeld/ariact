@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { MDXProvider } from '@mdx-js/react';
 
 import { styled } from '@/design-system/stitches.config';
+import { Box } from '@/design-system/components/Box';
+import { Text } from '@/design-system/components/Text';
 import { GlobalStyles } from '@/components/global/GlobalStyles';
 import { MDXComponents } from '@/components/MDXComponents';
 import { NavigationSection } from '@/utils/getNavigationSections';
@@ -24,8 +26,6 @@ const DefaultBox = styled('div', {
 
 const Navigation = styled('nav', {
   width: '100%',
-  borderBottom: '1px solid',
-  borderColor: '$gray500',
   WebkitOverflowScrolling: 'touch',
   overflowX: 'hidden',
   px: '$2',
@@ -40,8 +40,6 @@ const Navigation = styled('nav', {
     left: 0,
     bottom: 0,
     width: '320px',
-    borderRight: '1px solid',
-    borderBottom: '0',
   },
 
   bp3: {
@@ -50,7 +48,7 @@ const Navigation = styled('nav', {
 });
 
 const Container = styled('div', {
-  py: '$7',
+  py: '$4',
   bp2: {
     width: '100%',
     pl: '320px',
@@ -58,7 +56,7 @@ const Container = styled('div', {
   },
   bp3: {
     px: '320px',
-    py: '$8',
+    py: '$6',
   },
 });
 
@@ -77,7 +75,7 @@ const LogoLink = styled('a', {
   color: '$loContrast',
   textDecoration: 'none',
   textTransform: 'uppercase',
-  fontSize: '$8',
+  fontSize: '$5',
   fontWeight: 700,
   transition: 'font-weight .2s',
 
@@ -94,9 +92,6 @@ const NavigationLink = styled('a', {
     textDecoration: 'underline',
   },
 });
-
-const Box = styled('div', {});
-const Text = styled('span', {});
 
 export const DefaultLayout = ({
   children,
@@ -121,24 +116,31 @@ export const DefaultLayout = ({
 
     <DefaultBox>
       <Navigation>
-        <Box css={{ pb: '$5' }}>
-          <Link href="/" passHref>
-            <LogoLink>Ariact</LogoLink>
-          </Link>
-        </Box>
+        <Link href="/" passHref>
+          <LogoLink>Ariact</LogoLink>
+        </Link>
+        <Box css={{ height: '$5' }} />
         {navigationSections
           ? navigationSections.map(section => (
               <Box key={section.title} css={{ pb: '$5' }}>
                 <Text
                   as="p"
-                  css={{ fontWeight: 700, fontSize: '$6', mb: '$5' }}>
+                  size="3"
+                  weight={700}
+                  // TODO: Background component
+                  // just like https://seek-oss.github.io/braid-design-system/components/BackgroundProvider
+                  css={{ color: '$loContrast', textTransform: 'capitalize' }}>
                   {section.title}
                 </Text>
+                <Box css={{ height: '$3' }} />
                 {section.pages.map(page => (
                   <Text
                     key={page.title}
                     as="div"
-                    css={{ fontWeight: 500, pb: '$3', fontSize: '$5' }}>
+                    weight={500}
+                    size="3"
+                    // TODO: Stack component
+                    css={{ pb: '$2' }}>
                     <Link href={page.slug} passHref>
                       <NavigationLink>{page.title}</NavigationLink>
                     </Link>
@@ -151,13 +153,16 @@ export const DefaultLayout = ({
 
       <Container>
         <MainContent>
-          <h1>{frontMatter?.title}</h1>
+          <Text as="h1" size="8" weight={700}>
+            {frontMatter?.title}
+          </Text>
 
           {children}
 
-          <footer>
-            <span>Footer</span>
-          </footer>
+          <Box as="footer">
+            <Box css={{ height: '$9' }} />
+            <Text>This is the footer</Text>
+          </Box>
         </MainContent>
       </Container>
     </DefaultBox>

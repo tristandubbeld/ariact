@@ -40,7 +40,7 @@ export async function getNavigationSections() {
       // title: 'About this project',
       // title: 'Perceivable',
       // title: 'Operable',
-      title: folder,
+      title: folder.replace(/-/g, ' '),
       pages,
     });
   }
