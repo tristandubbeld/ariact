@@ -25,10 +25,16 @@ function frontMatterToPages(matter: MatterType[], route: string) {
     });
 }
 
+/**
+ * TODO: In the future we could determine the order of the data folders by renaming
+ * them to e.g. 0-about-this-project and 1-perceivable. To fix this we will need glob
+ * (https://www.npmjs.com/package/glob) for wildcards to keep urls clean (so no
+ * numbers show up). We'd need to implement this for getFiles(folder) in [slug].tsx
+ *  */
+export const sectionOrder = ['about-this-project', 'perceivable', 'operable'];
+
 export async function getNavigationSections() {
   const folders = await getDataFolders();
-  // TODO: order sections according to maybe folder name or something
-  // because now operable comes before perceivable
   const sections = [];
 
   for (const folder of folders) {
@@ -36,14 +42,22 @@ export async function getNavigationSections() {
     const pages = frontMatterToPages(section, folder);
 
     sections.push({
-      // TODO: fix section title
-      // title: 'About this project',
-      // title: 'Perceivable',
-      // title: 'Operable',
       title: folder.replace(/-/g, ' '),
       pages,
     });
   }
+
+  sections.sort((a, b) => {
+    // Check if the order for this folder matters
+    if (sectionOrder.includes(a.title)) {
+      // Order the array according to the sorting order
+      return sectionOrder.indexOf(a.title) - sectionOrder.indexOf(b.title);
+    }
+
+    // Leave the folder where it is, it will be sorted alphabetically at
+    // behind all the other sections
+    return 0;
+  });
 
   return [...sections];
 }
