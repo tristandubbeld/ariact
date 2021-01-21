@@ -4,7 +4,7 @@ export type TextProps = StitchesProps<typeof Text>;
 export type TextVariants = StitchesVariants<typeof Text>;
 
 export const Text = styled('span', {
-  color: '$hiContrast',
+  color: 'inherit',
   margin: 0,
 
   variants: {
