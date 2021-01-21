@@ -9,4 +9,49 @@ Provide text alternatives for any non-text content so that it can be changed int
 
 (Level A)
 
-TODO
+To meet this rule you have to make sure that all relevant non-text content on your page has a text alternative.
+An example would be an image that is not just decorative, but has content relevant to the user.
+Another example is a button that does not contain text, but an icon.
+
+TODO: Navigate to headings
+
+- Images
+- Icons
+- Libraries
+
+### Images
+
+For an image it can be as simple as adding an `alt` attribute with a text describing the image.
+Try to imagine what is relevant for your users to know about the image. When nothing is really relevant and you've figured that the image is more decorative make sure that you still add an _empty_ `alt` attribute:
+
+```tsx
+<img src="a-decorative-scene.jpg" alt="">
+```
+
+When you omit the `alt` tag alltogether, assistive tools like screenreaders might read the file name instead.
+
+TODO: More complex images explained with `aria-describedby`.
+
+### Icons
+
+Icons are usually relevant to your users.
+Make sure your visually impaired users know what to expect too.
+You can do this by using the `aria-label` attribute:
+
+```tsx
+<button aria-label="Open menu">
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <path></path>
+  </svg>
+</button>
+```
+
+Keep in mind that when you use both an `aria-label` and text inside a button, the `aria-label` will be read by the screenreader.
+
+### Libraries
+
+The [Radix UI Accessible Icon](https://radix-ui.com/primitives/docs/utilities/accessible-icon) is a great component to wrap around your icons to make them accessible.
+
+<Box css={{ height: '$2' }} />
+
+Official [WCAG 2.1 Non-text Content criterion](https://www.w3.org/TR/WCAG21/#non-text-content)
