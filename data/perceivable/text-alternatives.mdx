@@ -5,6 +5,8 @@ navigationOrder: 1
 
 Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.
 
+Please keep in mind that this page is still a work in progress.
+
 ## 1.1.1 Non-text Content
 
 (Level A)
@@ -38,6 +40,8 @@ Icons are usually relevant to your users.
 Make sure your visually impaired users know what to expect too.
 You can do this by using the `aria-label` attribute:
 
+TODO: Radix has a great explanation about svg's and that they're focusable. Add that.
+
 ```tsx
 <button aria-label="Open menu">
   <svg xmlns="http://www.w3.org/2000/svg">
@@ -45,6 +49,8 @@ You can do this by using the `aria-label` attribute:
   </svg>
 </button>
 ```
+
+TODO: Aria label isn't the only way to do this (visibly hidden)
 
 Keep in mind that when you use both an `aria-label` and text inside a button, the `aria-label` will be read by the screenreader.
 
