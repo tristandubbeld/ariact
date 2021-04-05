@@ -17,6 +17,7 @@ const Nav = styled('nav', {
   overflowX: 'hidden',
   px: '$2',
   py: '$4',
+  backgroundColor: '$loContrast',
   borderRight: '1px solid $gray300',
   position: 'fixed',
   top: 0,
@@ -54,7 +55,6 @@ const Nav = styled('nav', {
 });
 
 const LogoText = styled(Text, {
-  // color: '$loContrast',
   textTransform: 'uppercase',
 });
 
@@ -70,7 +70,7 @@ const LogoLink = styled('a', {
 });
 
 const NavigationLink = styled('a', {
-  // color: '$loContrast',
+  color: '$hiContrast',
   textDecoration: 'none',
 
   '&:hover': {
