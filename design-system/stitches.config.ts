@@ -2,8 +2,22 @@ import { createCss } from '@stitches/react';
 
 export const theme = {
   colors: {
-    hiContrast: 'hsl(206,10%,5%)',
-    loContrast: 'white',
+    black: '#000000',
+    white: '#FFFFFF',
+
+    gray50: '#F7FAFC',
+    gray100: '#EDF2F7',
+    gray200: '#E2E8F0',
+    gray300: '#CBD5E0',
+    gray400: '#A0AEC0',
+    gray500: '#718096',
+    gray600: '#4A5568',
+    gray700: '#2D3748',
+    gray800: '#1A202C',
+    gray900: '#171923',
+
+    hiContrast: '$gray800',
+    loContrast: '$white',
   },
   fonts: {
     inter: 'Inter, -apple-system, system-ui, sans-serif',

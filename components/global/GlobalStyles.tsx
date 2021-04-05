@@ -28,6 +28,7 @@ export function GlobalStyles() {
             body {
               margin: 0;
               background-color: var(--colors-loContrast);
+              color: var(--colors-hiContrast);
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
               /* line-height: 1; */

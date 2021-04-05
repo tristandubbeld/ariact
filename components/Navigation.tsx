@@ -17,8 +17,7 @@ const Nav = styled('nav', {
   overflowX: 'hidden',
   px: '$2',
   py: '$4',
-  backgroundColor: '$hiContrast',
-  color: '$loContrast',
+  borderRight: '1px solid $gray300',
   position: 'fixed',
   top: 0,
   bottom: 0,
@@ -55,7 +54,7 @@ const Nav = styled('nav', {
 });
 
 const LogoText = styled(Text, {
-  color: '$loContrast',
+  // color: '$loContrast',
   textTransform: 'uppercase',
 });
 
@@ -71,7 +70,7 @@ const LogoLink = styled('a', {
 });
 
 const NavigationLink = styled('a', {
-  color: '$loContrast',
+  // color: '$loContrast',
   textDecoration: 'none',
 
   '&:hover': {
@@ -137,7 +136,7 @@ export const Navigation: React.FC<Props> = ({
             aria-label="Close navigation"
             css={{
               backgroundColor: 'transparent',
-              color: '$loContrast',
+              // color: '$loContrast',
               border: 'none',
               display: 'flex',
               alignItems: 'center',
@@ -167,14 +166,14 @@ export const Navigation: React.FC<Props> = ({
               <Text
                 id={headingId}
                 as="h3"
-                size="3"
-                // https://github.com/modulz/stitches/issues/403
-                weight="700"
+                size={3}
+                weight={700}
                 // TODO: Background component
                 // just like https://seek-oss.github.io/braid-design-system/components/BackgroundProvider
                 css={{
-                  color: '$loContrast',
-                  textTransform: 'capitalize',
+                  '&::first-letter': {
+                    textTransform: 'capitalize',
+                  },
                 }}>
                 {section.title}
               </Text>
@@ -187,9 +186,8 @@ export const Navigation: React.FC<Props> = ({
                   <Text
                     key={page.title}
                     as="li"
-                    // https://github.com/modulz/stitches/issues/403
-                    weight="500"
-                    size="3"
+                    weight={500}
+                    size={3}
                     // TODO: Stack component
                     css={{ pb: '$2', listStyle: 'none' }}>
                     <Link href={page.slug} passHref>
