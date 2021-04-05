@@ -19,29 +19,13 @@ const Nav = styled('nav', {
   py: '$4',
   backgroundColor: '$hiContrast',
   color: '$loContrast',
-
   position: 'fixed',
   top: 0,
   bottom: 0,
   right: '100%',
-  transition: 'transform .2s',
-  transform: 'translateX(0%)',
+  transition: 'visibility .2s, transform .2s',
 
-  variants: {
-    status: {
-      // status undefined means desktop
-      open: {
-        visibility: 'unset',
-        transform: 'translateX(100%)',
-        transition: 'transform .2s',
-      },
-      closed: {
-        visibility: 'hidden',
-      },
-    },
-  },
-
-  bp2: {
+  '@bp2': {
     transform: 'translateX(0)',
     transition: 'none',
     px: '$5',
@@ -52,9 +36,21 @@ const Nav = styled('nav', {
     right: 'auto',
     width: '320px',
   },
-
-  bp3: {
+  '@bp3': {
     py: '$5',
+  },
+
+  variants: {
+    status: {
+      open: {
+        visibility: 'unset',
+        transform: 'translateX(100%)',
+      },
+      closed: {
+        visibility: 'hidden',
+        transform: 'translateX(0%)',
+      },
+    },
   },
 });
 
@@ -132,7 +128,7 @@ export const Navigation: React.FC<Props> = ({
             top: '$3',
             display: 'block',
 
-            bp2: {
+            '@bp2': {
               display: 'none',
             },
           }}>
@@ -172,7 +168,8 @@ export const Navigation: React.FC<Props> = ({
                 id={headingId}
                 as="h3"
                 size="3"
-                weight={700}
+                // https://github.com/modulz/stitches/issues/403
+                weight="700"
                 // TODO: Background component
                 // just like https://seek-oss.github.io/braid-design-system/components/BackgroundProvider
                 css={{
@@ -190,7 +187,8 @@ export const Navigation: React.FC<Props> = ({
                   <Text
                     key={page.title}
                     as="li"
-                    weight={500}
+                    // https://github.com/modulz/stitches/issues/403
+                    weight="500"
                     size="3"
                     // TODO: Stack component
                     css={{ pb: '$2', listStyle: 'none' }}>

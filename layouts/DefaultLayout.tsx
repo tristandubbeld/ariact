@@ -23,19 +23,21 @@ interface Props {
 const DefaultBox = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  bp2: {
+
+  '@bp2': {
     flexDirection: 'row',
   },
 });
 
 const Container = styled('div', {
   py: '$4',
-  bp2: {
+
+  '@bp2': {
     width: '100%',
     pl: '320px',
     pr: 0,
   },
-  bp3: {
+  '@bp3': {
     px: '320px',
     py: '$6',
   },
@@ -47,7 +49,7 @@ const MainContent = styled('main', {
   px: '$2',
   maxWidth: '715px',
 
-  bp2: {
+  '@bp2': {
     px: '$5',
   },
 });
@@ -56,7 +58,7 @@ const MobileMenu = styled(Box, {
   display: 'block',
   padding: '$2',
 
-  bp2: {
+  '@bp2': {
     display: 'none',
   },
 });
@@ -107,7 +109,7 @@ export const DefaultLayout = ({
 
         <Container>
           <MainContent aria-hidden={navigationState === 'open'}>
-            <Text as="h1" size="8" weight={700}>
+            <Text as="h1" size={8} weight={700}>
               {frontMatter?.title}
             </Text>
 

@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+// TODO: global styles with global from stitches
+// https://stitches.dev/docs/styling#global-styles
 export function GlobalStyles() {
   return (
     <Head>
