@@ -31,7 +31,13 @@ function frontMatterToPages(matter: MatterType[], route: string) {
  * (https://www.npmjs.com/package/glob) for wildcards to keep urls clean (so no
  * numbers show up). We'd need to implement this for getFiles(folder) in [slug].tsx
  *  */
-export const sectionOrder = ['about-this-project', 'perceivable', 'operable'];
+export const sectionOrder = [
+  'about this project',
+  'getting started',
+  'forms',
+  'perceivable',
+  'operable',
+];
 
 export async function getNavigationSections() {
   const folders = await getDataFolders();
