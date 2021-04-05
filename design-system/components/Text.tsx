@@ -1,6 +1,4 @@
-import { styled, StitchesVariants } from '../stitches.config';
-
-export type TextVariants = StitchesVariants<typeof Text>;
+import { styled } from '../stitches.config';
 
 export const Text = styled('span', {
   color: 'inherit',
