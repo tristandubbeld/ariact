@@ -1,0 +1,45 @@
+---
+title: Skip navigation
+navigationOrder: 1
+---
+
+TODO: FIXME: RENAME TO SKIP LINKS
+or not: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main#skip_navigation
+// skip navigation or something sounds best
+
+Work in progress.
+
+This guide covers the following WCAG success criteria:
+
+- [2.4.1 Bypass Blocks](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html): A mechanism is available to bypass blocks of content that are repeated on multiple Web pages. (Level A)
+
+## About
+
+The skip navigation feature is also known as skip to content, skipping links or skip to main content.
+
+### Headings and landmarks
+
+Grouping content with semantic html (headings) or using ARIA landmarks to identify regions of a page. Check the WCAG link. and also the react link!
+
+More: https://webaim.org/techniques/skipnav/
+More from react: https://reactjs.org/docs/accessibility.html#mechanisms-to-skip-to-desired-content
+More: https://reach.tech/skip-nav/
+https://webaim.org/techniques/css/invisiblecontent/#skipnavlinks
+
+navigating by headings (https://webaim.org/techniques/skipnav/#headings)
+
+> Verdict: This method is very effective for screen reader users, but sighted keyboard users generally cannot take advantage of it. Even so, there are many reasons to use headings, so this method is highly recommended.
+
+### Why (and when) do you need it
+
+## Example
+
+### Creating the skip navigation
+
+### Landmarks
+
+### Hiding the skip navigation (visually)
+
+## Browser support
+
+On this website we use `:focus-within` to visually show the skip navigation component. If you need to support browsers like Internet Explorer you could show links on `:focus`, or handle visibility with Javascript.

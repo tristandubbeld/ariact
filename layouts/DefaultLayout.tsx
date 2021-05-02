@@ -13,6 +13,7 @@ import { MDXComponents } from '@/components/MDXComponents';
 import { Navigation } from '@/components/Navigation';
 
 import { NavigationSection } from '@/utils/getNavigationSections';
+import { SkipToContent } from '@/components/SkipToContent';
 
 interface Props {
   children?: ReactNode;
@@ -43,7 +44,7 @@ const Container = styled('div', {
   },
 });
 
-const MainContent = styled('main', {
+const Retain = styled('div', {
   ml: 'auto',
   mr: 'auto',
   px: '$2',
@@ -54,7 +55,7 @@ const MainContent = styled('main', {
   },
 });
 
-const MobileMenu = styled(Box, {
+const MobileMenu = styled('div', {
   display: 'block',
   padding: '$2',
 
@@ -89,6 +90,8 @@ export const DefaultLayout = ({
 
       <GlobalStyles />
 
+      <SkipToContent />
+
       <DefaultBox>
         <Navigation
           navigationState={navigationState}
@@ -108,18 +111,19 @@ export const DefaultLayout = ({
         </MobileMenu>
 
         <Container>
-          <MainContent aria-hidden={navigationState === 'open'}>
-            <Text as="h1" size={8} weight={700}>
-              {frontMatter?.title}
-            </Text>
+          <Retain>
+            <main id="main" aria-hidden={navigationState === 'open'}>
+              <Text as="h1" size={8} weight={700}>
+                {frontMatter?.title}
+              </Text>
 
-            {children}
-
+              {children}
+            </main>
             <Box as="footer">
               <Box css={{ height: '$9' }} />
               <Text>This is the footer</Text>
             </Box>
-          </MainContent>
+          </Retain>
         </Container>
       </DefaultBox>
     </MDXProvider>

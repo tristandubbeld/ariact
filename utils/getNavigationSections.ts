@@ -32,11 +32,10 @@ function frontMatterToPages(matter: MatterType[], route: string) {
  * numbers show up). We'd need to implement this for getFiles(folder) in [slug].tsx
  *  */
 export const sectionOrder = [
-  'about this project',
-  'getting started',
-  'forms',
-  'perceivable',
-  'operable',
+  'introduction',
+  'guides',
+  'project configuration',
+  'WCAG guidelines',
 ];
 
 export async function getNavigationSections() {
