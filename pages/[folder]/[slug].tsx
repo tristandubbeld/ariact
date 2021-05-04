@@ -1,8 +1,9 @@
-import hydrate from 'next-mdx-remote/hydrate';
+import { useMemo } from 'react';
+import { getMDXComponent } from 'mdx-bundler/client';
 
 import { getFiles, getFileBySlug, getDataFolders } from '@/utils/mdx';
 import { DefaultLayout } from '@/layouts/DefaultLayout';
-import { MDXComponents } from '@/components/MDXComponents';
+import { components } from '@/components/MDXComponents';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import {
   getNavigationSections,
@@ -14,25 +15,23 @@ interface FrontMatter {
 }
 
 interface PageProps {
-  mdxSource: any;
+  code: string;
   frontMatter: FrontMatter;
   navigationSections: NavigationSection[];
 }
 
-export default function Test({
-  mdxSource,
+export default function Page({
+  code,
   frontMatter,
   navigationSections,
 }: PageProps) {
-  const content = hydrate(mdxSource, {
-    components: MDXComponents,
-  });
+  const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
     <DefaultLayout
       frontMatter={frontMatter}
       navigationSections={navigationSections}>
-      {content}
+      <Component components={components} />
     </DefaultLayout>
   );
 }

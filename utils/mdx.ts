@@ -1,10 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import renderToString from 'next-mdx-remote/render-to-string';
-import mdxPrism from 'mdx-prism';
-
-import { MDXComponents } from '@/components/MDXComponents';
+import { bundleMDX } from 'mdx-bundler';
+import remarkSlug from 'remark-slug';
 
 const root = process.cwd();
 
@@ -23,20 +21,16 @@ export async function getFileBySlug(type: string, slug: string) {
 
   const { data, content } = matter(source);
 
-  const mdxSource = await renderToString(content, {
-    components: MDXComponents,
-    mdxOptions: {
-      remarkPlugins: [
-        require('remark-autolink-headings'),
-        require('remark-slug'),
-        // require('remark-code-titles'),
-      ],
-      rehypePlugins: [mdxPrism],
+  const { code } = await bundleMDX(content, {
+    xdmOptions(_input, options) {
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkSlug];
+
+      return options;
     },
   });
 
   return {
-    mdxSource,
+    code,
     frontMatter: {
       slug: slug || null,
       ...data,

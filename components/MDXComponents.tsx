@@ -18,7 +18,7 @@ const CustomLink = (props: React.HTMLProps<HTMLAnchorElement>) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
-export const MDXComponents = {
+export const components = {
   Box,
   Text,
   a: CustomLink,

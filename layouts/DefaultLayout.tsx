@@ -1,6 +1,5 @@
 import React, { ReactNode, useState } from 'react';
 import Head from 'next/head';
-import { MDXProvider } from '@mdx-js/react';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 
 import { styled } from '@/design-system/stitches.config';
@@ -9,7 +8,6 @@ import { Text } from '@/design-system/components/Text';
 import { Button } from '@/design-system/components/Button';
 
 import { GlobalStyles } from '@/components/global/GlobalStyles';
-import { MDXComponents } from '@/components/MDXComponents';
 import { Navigation } from '@/components/Navigation';
 
 import { NavigationSection } from '@/utils/getNavigationSections';
@@ -74,7 +72,7 @@ export const DefaultLayout = ({
   >(undefined);
 
   return (
-    <MDXProvider components={MDXComponents}>
+    <>
       <Head>
         <title>{frontMatter?.title} - Ariact</title>
         <meta charSet="utf-8" />
@@ -126,6 +124,6 @@ export const DefaultLayout = ({
           </Retain>
         </Container>
       </DefaultBox>
-    </MDXProvider>
+    </>
   );
 };
