@@ -117,7 +117,6 @@ export const Navigation: React.FC<Props> = ({
 
   return (
     <Nav status={navigationState} aria-labelledby="nav-title-id">
-      {/* https://github.com/adobe/react-spectrum/issues/1765 */}
       <FocusScope
         contain={navigationState === 'open'}
         autoFocus={navigationState === 'open'}>
