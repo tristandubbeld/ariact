@@ -6,11 +6,8 @@ import { styled } from '@/design-system/stitches.config';
 import { Box } from '@/design-system/components/Box';
 import { Text } from '@/design-system/components/Text';
 import { Button } from '@/design-system/components/Button';
-
-import { GlobalStyles } from '@/components/global/GlobalStyles';
-import { Navigation } from '@/components/Navigation';
-
 import { NavigationSection } from '@/utils/getNavigationSections';
+import { Navigation } from '@/components/Navigation';
 import { SkipToContent } from '@/components/SkipToContent';
 
 interface Props {
@@ -77,16 +74,7 @@ export const DefaultLayout = ({
         <title>{frontMatter?.title} - Ariact</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link
-          rel="preload"
-          href="/fonts/inter-var-latin.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
       </Head>
-
-      <GlobalStyles />
 
       <SkipToContent />
 
